@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todo</title>
+	<meta name="viewport" content="width=device-width">
+	<!-- Add to homescreen for Safari on Ios -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="Todo">
+	<link rel="apple-touch-icon" href="img/logo.png">
+
+	<!-- Add to homescreen for Chrome on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="Todo">
+	<meta name="theme-color" content="#2F3BA2">
+	<link rel="icon" sizes="192x192" href="img/logo.png">
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/index.js"></script>
+</head>
+<body>
+<div id="todo">
+	<div class="header">
+		<div class="left">
+			<i class="icon">&#xe6b1;</i>
+		</div>
+		<div class="editdrop">
+			<ul>
+				<li type="completed">所有已完成</li>
+				<li type="unfinished">所有未完成</li>
+				<li type="important">重要事件</li>
+				<li type="all">全部</li>
+				<li type="cancel">取消</li>
+			</ul>
+		</div>
+		<div class="right">
+			编辑
+		</div>
+	</div>
+	<div class="content">
+		<div class="time">
+			<h2>时间</h2>
+			<ul>
+			</ul>
+			<div class="addtime">
+				<div></div>
+			</div>
+		</div>
+		<div class="remind">
+			<h2>提醒<span>1</span></h2>
+			<ul class="bj">
+				<li class="tz">颜色<span class="icon">&#xe624;</span></li>
+				<li class="color yc">
+					<ul>
+						<li><div class="sk zs"></div>紫色</li>
+						<li><div class="sk ls"></div>蓝色</li>
+						<li><div class="sk lv"></div>绿色</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>

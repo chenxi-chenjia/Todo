@@ -1,0 +1,409 @@
+// 基础文件写入
+
+*{
+	padding:0;
+	margin:0;
+	font-family:"Arial";
+	box-sizing:border-box;
+	color:#fff;
+}
+ul,i{
+	list-style:none;
+}
+html{
+	font-size:100px;
+}
+$Hwidth:320px,360px,375px,412px,414px,768px;
+$Swidth:750px;
+@each $i in $Hwidth{
+	@media screen and (min-width:#{$i}){
+		html{
+			font-size:100px * $i / $Swidth;
+		}
+	} 
+}
+body{
+	font-size:16px;
+<<<<<<< HEAD
+	color:#fff;
+=======
+	margin:0;
+	padding:0;
+>>>>>>> master
+}
+@mixin nofloat{
+	content:"";
+	display:block;
+	clear:both;
+}
+@mixin incenter{
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+}
+@mixin x{
+	&:after{
+		content:"";
+		display:block;
+		width:80%;
+		height:10%;
+		position:absolute;
+		@include incenter;
+		background:#fff;
+	}
+	&:before{
+		content:"";
+		display:block;
+		height:80%;
+		width:10%;
+		position:absolute;
+		@include incenter;
+		background:#fff;
+	}
+}
+@font-face {
+  font-family: 'iconfont';  /* project id："170594" */
+  src: url('https://at.alicdn.com/t/font_ej6fjhdymzir7ldi.eot');
+  src: url('https://at.alicdn.com/t/font_ej6fjhdymzir7ldi.eot') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_ej6fjhdymzir7ldi.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_ej6fjhdymzir7ldi.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_ej6fjhdymzir7ldi.svg#iconfont') format('svg');
+}
+.icon{
+    font-family:"iconfont" !important;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+/////////////////////////////////////////////////////////////////////////////
+// todo
+#todo{
+	width:100%;
+	background:#111;
+	@include nofloat;
+	// 头部
+	.header{
+		width:100%;
+		height:1rem;
+		background:#2f2f2f;
+		position:relative;
+		.left{
+			float:left;
+			height:1rem;
+			width:1rem;
+			opacity: .9;
+			color:#fff;
+			line-height:1rem;
+			text-align:center;
+			i{
+				font-size:0.7rem;
+			}
+		}
+		.right{
+			float:right;
+			height:100%;
+			margin-right:0.3rem;
+			opacity: .9;
+			color:#0085d0;
+			line-height:1rem;
+			text-align:center;
+			font-size:0.3rem;
+			font-weight:700;
+		}
+		.editdrop{
+			position:absolute;
+			background:#575757;
+			z-index:10;
+			top:1rem;
+			right:0.3rem;
+			width:40%;
+			border-radius:0.1rem;
+			display:none;
+			li{
+				text-align:center;
+				height:.8rem;
+				line-height:.8rem;
+				font-size:0.38rem;
+			}
+		}
+	}
+	.content{
+		width:100%;
+		overflow:hidden;
+		&:after{@include nofloat;}
+		.time{
+			float:left;
+			border-right:0.03rem solid #737373;
+			padding-bottom:99999999999999px;
+			margin-bottom:-99999999999999px;
+			width:30%;
+			transition:all 0.25s ease-in-out;
+			transform:translateX(-10rem);
+			h2{
+				font:700 0.4rem/1rem "微软雅黑";
+				text-align:center;
+			}
+			ul{
+				padding:0 0.3rem;
+				overflow:hidden;
+			}
+			li{
+				width:100%;
+				font:400 0.38rem/1rem "Arial";
+				position:relative;
+				text-align:center;
+				height:1rem;
+				border-bottom:0.02rem solid #737373;
+				input{
+					width:100%;
+					height:100%;
+					font:400 0.38rem/1rem "Arial";
+					outline:none;
+					border:none;
+					position:absolute;
+					background:#111;
+					left:0;
+					top:0;
+					display:none;
+					padding-left:0.3rem;
+				}
+				span{
+					position:relative;
+				}
+				.hua{
+					width:100%;
+					height:100%;
+					background:#111;
+					position:relative;
+					transition:all 0.5s ease-in-out;
+				}
+				.delete{
+					padding:0 0.1rem;
+					position:absolute;
+					height:0.8rem;
+					background:#ff0410;
+					text-align:center;
+					font:400 0.38rem/0.8rem "微软雅黑";
+					top:0.1rem ;
+					right:0.1rem;
+				}
+			}
+			.new{
+				input{
+					display:block;
+				}
+				span{
+					display:none;
+				}
+			}
+			.timemove{
+				.hua{
+					transform:translateX(-1.2rem);
+				}
+			}
+			.addtime{
+				width:80%;
+				height:1rem;
+				margin:0 auto;
+				position:relative;
+				div{
+					width:0.6rem;
+					height:0.6rem;
+					margin:0.2rem auto;
+					position:absolute;
+					@include incenter;
+					@include x;
+				}
+			}
+			.now{
+				border-bottom-color:#fff;
+				border-bottom:0.04rem solid #fff;
+			}
+		}
+		.remind{
+			width:100%;
+			float:right;
+			transition:all 0.25s ease-in-out;
+			h2{
+				font:700 0.4rem/1rem "微软雅黑";
+				padding:0 0.3rem;
+				position:relative;
+				span{
+					font:700 0.4rem/1rem "Arial";
+					float:right;
+				}
+			}
+			.bj{
+				padding:0 0.3rem;
+				margin-bottom:0.2rem;
+				li{
+					padding:0 0.2rem;
+				}
+				.tz{
+					font:400 0.38rem/1rem "微软雅黑";
+					border-bottom:0.02rem solid #737373;
+					.icon{
+						float:right;
+						transition:all 0.25s;
+					}
+				}
+				.yc{
+					border-bottom:0.02rem solid #737373;
+					display:none;
+					li{
+						font:0.38rem/1rem "Arial";
+						padding:0 0.2rem;
+					}
+					li+li{
+						border-top:0.02rem solid #737373;
+					}
+				}
+				.slide{
+					.icon{
+						transform:rotate(180deg);
+					}
+				}
+			}
+			.event{
+				padding:0 0.3rem;
+				display:none;
+				overflow:hidden;
+				.icon{
+					font-size:0.4rem;
+				}
+				li{
+					height:1rem;
+					border-bottom:0.02rem solid #737373;
+					position:relative;
+					input{
+						width:100%;
+						height:100%;
+						padding-left:0.3rem;
+						background:#111;
+						border:0;
+						outline:none;
+						font:400 0.38rem/1rem "Arial";
+						position:absolute;
+					}
+					p{
+						font:400 0.38rem/1rem "Arial";
+						padding-left:0.1rem;
+					}
+					span{
+						position:absolute;
+						@include incenter;
+						right:0;
+						left:auto;
+						color:#fff000;
+						width:1rem;
+						height:1rem;
+						text-align:center;
+						line-height:1rem;
+					}
+					.addevent{
+						width:0.6rem;
+						height:0.6rem;
+						position:absolute;
+						top:0.2rem;
+						left:0.2rem;
+						@include x;
+					}
+				}
+				.delete{
+					padding:0 0.1rem;
+					position:absolute;
+					height:0.8rem;
+					background:#ff0410;
+					text-align:center;
+					font:400 0.38rem/0.8rem "微软雅黑";
+					top:0.1rem;
+					right:0.1rem;
+				}
+				.edit{
+					padding:0 0.1rem;
+					position:absolute;
+					height:0.8rem;
+					background:#317EF3;
+					text-align:center;
+					font:400 0.38rem/0.8rem "微软雅黑";
+					top:0.1rem;
+					right:1.1rem;
+				}
+				.hua{
+					width:100%;
+					height:100%;
+					background:#111;
+					position:relative;
+					transition:all 0.5s ease-in-out;
+				}
+			}
+			// event  类名控制
+			.needaddevent{
+				.addevent{
+					display: block;
+				}
+				input,span,p{
+					display:none;
+				}
+			}
+			.editevent{
+				.addevent,span,p{
+					display:none;
+				}
+				input{
+					display:block;
+				}
+			}
+			.notimportevent{
+				.addevent,input,.import{
+					display:none;
+				}
+				p,.noimport{
+					display:block;
+				}
+			}
+			.importevent{
+				.addevent,input,.noimport{
+					display:none;
+				}
+				p,.import{
+					display:block;
+				}
+			}
+			.done{
+				.addevent,input,.icon{
+					display:none;
+				}
+				p{
+					display:block;
+					color:#c9c9c9;
+					text-decoration:line-through;
+				}
+			}
+			.eventmove{
+				.hua{
+					transform:translateX(-2.4rem);
+				}
+			}
+			.now{
+				display:block;
+			}
+		}
+		.timemove{
+			transform:translateX(0);
+		}
+		.remindmove{
+			width:70%;
+		}
+	}
+	// 编辑事件中的绝对出现于绝对消失
+	.mustnone{
+		display:none !important;
+	}
+	.mustblock{
+		display:block !important;
+	}
+}
